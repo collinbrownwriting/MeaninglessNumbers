@@ -1,0 +1,13 @@
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\bin\Debug\netcoreapp3.1\Meaningless Numbers.exe
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\bin\Debug\netcoreapp3.1\Meaningless Numbers.deps.json
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\bin\Debug\netcoreapp3.1\Meaningless Numbers.runtimeconfig.json
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\bin\Debug\netcoreapp3.1\Meaningless Numbers.runtimeconfig.dev.json
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\bin\Debug\netcoreapp3.1\Meaningless Numbers.dll
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\bin\Debug\netcoreapp3.1\Meaningless Numbers.pdb
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\obj\Debug\netcoreapp3.1\Meaningless Numbers.csprojAssemblyReference.cache
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\obj\Debug\netcoreapp3.1\Meaningless Numbers.AssemblyInfoInputs.cache
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\obj\Debug\netcoreapp3.1\Meaningless Numbers.AssemblyInfo.cs
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\obj\Debug\netcoreapp3.1\Meaningless Numbers.csproj.CoreCompileInputs.cache
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\obj\Debug\netcoreapp3.1\Meaningless Numbers.dll
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\obj\Debug\netcoreapp3.1\Meaningless Numbers.pdb
+C:\Users\CJBro\Desktop\Game Dev\Simulations\Meaningless Numbers C#\obj\Debug\netcoreapp3.1\Meaningless Numbers.genruntimeconfig.cache
