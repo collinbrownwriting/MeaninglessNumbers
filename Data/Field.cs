@@ -70,6 +70,12 @@ namespace Meaningless_Numbers
 
 
             //int activeNeighbors = activePoint.CheckNeighbors(this);
+            float instability = activePoint.vector.mag % threshold;
+
+            if (instability != 0)
+            {
+                Radiation(activePoint, instability);
+            }
 
             if (activePoint.vector.mag > tension * 2 && activePoint.vector.mag > threshold && hasHighParticles)
             {
@@ -200,6 +206,32 @@ namespace Meaningless_Numbers
                                 activePoint.vector.mag -= diffuse;
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        public void Radiation(Point activePoint, float instability)
+        {
+            Random random = new Random();
+
+            int castX = random.Next(-1, 2);
+            int castY = random.Next(-1, 2);
+
+            int castDistance = random.Next(1, 25);
+
+            if (castX != 0 || castY != 0)
+            {
+                if (activePoint.x + castX > 0 && activePoint.x + castX < Program.width
+                    && activePoint.y + castY > 0 && activePoint.y + castY < Program.height)
+                {
+                    Point p = this.points[activePoint.x + castX, activePoint.y + castY];
+
+                    if (p != null && p != activePoint)
+                    {
+                        p.vector.x += castDistance * castX;
+                        p.vector.y += castDistance * castY;
+                        p.vector.mag = instability;
                     }
                 }
             }

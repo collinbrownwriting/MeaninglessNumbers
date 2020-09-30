@@ -33,10 +33,10 @@ namespace Meaningless_Numbers
             Console.SetCursorPosition(10, 0);
             Console.Write("Energy: " + energy);
 
-            //if (turn == 1)
-            //{
-            //    BigBang();
-            //}
+            if (turn == 1)
+            {
+                BigBang();
+            }
 
 
             FieldInteractions();
@@ -44,10 +44,10 @@ namespace Meaningless_Numbers
 
             Random rand = new Random();
 
-            if (rand.Next(1, 100) > 90 && energy < 2000f)
-            {
-                Program.inputHandler.RandomStrum();
-            }
+            //if (rand.Next(1, 100) > 90 && energy < 2000f)
+            //{
+            //    Program.inputHandler.RandomStrum();
+            //}
 
             RenderWorld();
 
@@ -130,6 +130,7 @@ namespace Meaningless_Numbers
                     if (m.vector.mag > Program.strongField.threshold)
                     {
                         s.vector.mag = m.vector.mag - 1;
+                        strongPoints.Add(s);
                     }
                     else
                     {
@@ -153,26 +154,24 @@ namespace Meaningless_Numbers
                                 dist = 1;
                             }
 
-                            if (dist > 5 || Program.strongField.points[m.x, m.y].vector.mag < Program.strongField.threshold)
+                            if (g.x > m.x + 1 && g.vector.mag > m.vector.mag && dist < g.vector.mag)
                             {
-                                if (g.x > m.x + 1 && g.vector.mag > m.vector.mag && dist < g.vector.mag)
-                                {
-                                    m.vector.x++;
-                                }
-                                else if (g.x < m.x - 1 && dist < g.vector.mag && g.vector.mag > m.vector.mag)
-                                {
-                                    m.vector.x--;
-                                }
-
-                                if (g.y > m.y + 1 && g.vector.mag > m.vector.mag && dist < g.vector.mag)
-                                {
-                                    m.vector.y++;
-                                }
-                                else if (g.y < m.y - 1 && dist < g.vector.mag && g.vector.mag > m.vector.mag)
-                                {
-                                    m.vector.y--;
-                                }
+                                m.vector.x++;
                             }
+                            else if (g.x < m.x - 1 && dist < g.vector.mag && g.vector.mag > m.vector.mag)
+                            {
+                                m.vector.x--;
+                            }
+
+                            if (g.y > m.y + 1 && g.vector.mag > m.vector.mag && dist < g.vector.mag)
+                            {
+                                m.vector.y++;
+                            }
+                            else if (g.y < m.y - 1 && dist < g.vector.mag && g.vector.mag > m.vector.mag)
+                            {
+                                m.vector.y--;
+                            }
+
 
                             //m.vector.x = (int)(Math.Round((float)(g.x - m.vector.x / dist)));
                             //m.vector.y = (int)(Math.Round((float)(g.y - m.vector.y / dist)));
@@ -208,6 +207,38 @@ namespace Meaningless_Numbers
 
                         //e.vector.x = (int)(Math.Round((float)(g.x - e.vector.x / dist)));
                         //e.vector.y = (int)(Math.Round((float)(g.y - e.vector.y / dist)));
+                    }
+                }
+            }
+
+            foreach (Point s in strongPoints)
+            {
+                if (s != null)
+                {
+                    foreach (Point m in massPoints)
+                    {
+                        if (m != null)
+                        {
+                            float dist = (float)Math.Sqrt(((s.x - m.x) * (s.x - m.x)) + ((s.y - m.y) * (s.y - m.y)));
+
+                            float dampening = s.vector.mag / m.vector.mag;
+
+                            if (dampening > 0.8f)
+                            {
+                                dampening = 0.8f;
+                            }
+
+                            if (dist == 0)
+                            {
+                                dist = 1;
+                            }
+
+                            if (dist < 5)
+                            {
+                                m.vector.x += (int)(-m.vector.x * dampening);
+                                m.vector.y += (int)(-m.vector.y * dampening);
+                            }
+                        }
                     }
                 }
             }
@@ -310,8 +341,28 @@ namespace Meaningless_Numbers
                             {
                                 Point p = f.points[singularity.x + i, singularity.y + k];
                                 p.vector.mag += Program.width * Program.height / 60;
-                                p.vector.x = i;
-                                p.vector.y = k;
+                                p.vector.x = i * 1;
+                                p.vector.y = k * 1;
+                            }
+                        }
+                    }
+                }
+
+                if (f == Program.electromagField)
+                {
+                    Point singularity = f.points[(int)Math.Round((float)(Program.width / 2)), (int)Math.Round((float)(Program.height / 2))];
+                    singularity.vector.mag += Program.width * Program.height / 30;
+
+                    for (int i = -1; i <= 1; i++)
+                    {
+                        for (int k = -1; k <= 1; k++)
+                        {
+                            if (i != 0 || k != 0)
+                            {
+                                Point p = f.points[singularity.x + i, singularity.y + k];
+                                p.vector.mag += Program.width * Program.height / 60;
+                                p.vector.x = i * 150;
+                                p.vector.y = k * 150;
                             }
                         }
                     }

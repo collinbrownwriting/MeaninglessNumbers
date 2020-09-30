@@ -72,8 +72,8 @@ namespace Meaningless_Numbers
             strongField = new Field()
             {
                 interacts = false,
-                threshold = 1,
-                tension = 15f,
+                threshold = 15,
+                tension = 1f,
                 hasHighParticles = false
             };
             weakField = new Field()
