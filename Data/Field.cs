@@ -70,12 +70,12 @@ namespace Meaningless_Numbers
 
 
             //int activeNeighbors = activePoint.CheckNeighbors(this);
-            float instability = activePoint.vector.mag % threshold;
+            //float instability = activePoint.vector.mag % threshold;
 
-            if (instability != 0)
-            {
-                Radiation(activePoint, instability);
-            }
+            //if (instability != 0)
+            //{
+            //    Radiation(activePoint, instability);
+            //}
 
             if (activePoint.vector.mag > tension * 2 && activePoint.vector.mag > threshold && hasHighParticles)
             {

@@ -341,28 +341,8 @@ namespace Meaningless_Numbers
                             {
                                 Point p = f.points[singularity.x + i, singularity.y + k];
                                 p.vector.mag += Program.width * Program.height / 60;
-                                p.vector.x = i * 1;
-                                p.vector.y = k * 1;
-                            }
-                        }
-                    }
-                }
-
-                if (f == Program.electromagField)
-                {
-                    Point singularity = f.points[(int)Math.Round((float)(Program.width / 2)), (int)Math.Round((float)(Program.height / 2))];
-                    singularity.vector.mag += Program.width * Program.height / 30;
-
-                    for (int i = -1; i <= 1; i++)
-                    {
-                        for (int k = -1; k <= 1; k++)
-                        {
-                            if (i != 0 || k != 0)
-                            {
-                                Point p = f.points[singularity.x + i, singularity.y + k];
-                                p.vector.mag += Program.width * Program.height / 60;
-                                p.vector.x = i * 150;
-                                p.vector.y = k * 150;
+                                p.vector.x = i;
+                                p.vector.y = k;
                             }
                         }
                     }
